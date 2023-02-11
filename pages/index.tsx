@@ -6,9 +6,6 @@ import styles from '@/styles/Home.module.scss';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  console.log(1);
-  console.log(2)
-  debugger
   return (
     <>
       <Head>
