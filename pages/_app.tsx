@@ -3,14 +3,22 @@ import type { AppProps, AppContext } from 'next/app';
 import App from 'next/app';
 import { Layout, ILayoutProps } from '@/components/layout';
 import code from '@/public/code.png';
+import Head from 'next/head';
 
 const MyApp = (data: AppProps & ILayoutProps) => {
   const { Component, pageProps, navbarData, footerData } = data;
 
   return (
-    <Layout navbarData={navbarData} footerData={footerData}>
-      <Component {...pageProps} />
-    </Layout>
+    <div>
+      <Head>
+        <title>A demo for </title>
+        <meta name="description" content="A Demo for" />
+        <link rel="icon" href="/favicon.icon" />
+      </Head>
+      <Layout navbarData={navbarData} footerData={footerData}>
+        <Component {...pageProps} />
+      </Layout>
+    </div>
   );
 };
 
