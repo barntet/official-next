@@ -2,10 +2,12 @@ import '@/styles/globals.css';
 import type { AppProps, AppContext } from 'next/app';
 import App from 'next/app';
 import { Layout, ILayoutProps } from '@/components/layout';
-import code from '@/public/code.png';
+// import code from '@/public/code.png';
 import Head from 'next/head';
 import axios from 'axios';
 import { LOCALDOMAIN } from '@/utils';
+import { ThemeContextProvider } from '@/stores/theme';
+import './global.scss';
 
 console.log(import.meta);
 
@@ -19,9 +21,11 @@ const MyApp = (data: AppProps & ILayoutProps) => {
         <meta name="description" content="A Demo for" />
         <link rel="icon" href="/favicon.icon" />
       </Head>
-      <Layout navbarData={navbarData} footerData={footerData}>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeContextProvider>
+        <Layout navbarData={navbarData} footerData={footerData}>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeContextProvider>
     </div>
   );
 };

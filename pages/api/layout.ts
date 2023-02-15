@@ -3,12 +3,13 @@ import axios from "axios";
 import { ILayoutProps } from "../../components/layout";
 import { CMSDOMAIN, LOCALDOMAIN } from "@/utils";
 import { isEmpty } from "lodash";
+import nextConnect from 'next-connect'
 
 const getLayoutData = (
   req: NextApiRequest,
   res: NextApiResponse<ILayoutProps>
 ) => {
-  axios.get(`${CMSDOMAIN}/api/layouts`).then((result) => {
+  axios.get(`${CMSDOMAIN}/api/layouts`).then(result => {
     const {
       copyRight,
       links,
@@ -35,7 +36,8 @@ const getLayoutData = (
           };
         }),
         qrCode: {
-          image: `${LOCALDOMAIN}/public/code}`,
+          // image: `${LOCALDOMAIN}/public/code}`,
+          image: '',
           text: qr_code,
         },
         copyRight,
